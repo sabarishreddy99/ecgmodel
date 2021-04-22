@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Get Your Heart Condition</title>
+        <script src="https://kit.fontawesome.com/69e3acc8a4.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="icon" href="{{url_for('static',filename='ecglogo2.png')}}" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+        <style>
+            #maindiv{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            body{
+
+                margin: 0%;
+                padding: 0%;
+                margin-bottom: 100px;
+
+
+            }
+            .footer{
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color:rgb(47, 44, 49);
+                color: white;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 30px;
+            }
+            #footerheading{
+                font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            }
+            #linkedinlogo{
+                color: white;
+            }
+            #instalogo{
+                color: white;
+            }
+            .fa-linkedin-in:hover{
+                color: rgb(50, 60, 207) !important;
+            }
+            .fa-instagram:hover{
+                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            #fields{
+                width: 100%;
+                padding: 35px 5px 5px 5px;
+            }
+            #fields input{
+                border: none;
+                outline: none;
+                background: none;
+                font-size: 18px;
+                color: #555;
+                padding: 20px 10px 20px 5px;
+            }
+            #inputdata{
+                margin-bottom: 30px;
+                border-radius: 25px;
+                width: 80%;
+                box-shadow: inset 8px 8px 8px #cbced1,
+                            inset -8px -8px 8px #ffffff;
+            }
+            .divinsideform{
+                width: 600px;
+                height: 560px;
+
+                padding: 60px 35px 35px 35px;
+                border-radius: 40px;
+                background: #ecf0f3;
+                box-shadow: 3px 3px 7px white,
+                            -3px -3px 7px whitesmoke;
+                text-align: center;
+            }
+            #submitbtn{
+                outline: none;
+                border: none;
+                width: 40%;
+
+                height: 60px;
+                border-radius: 30px;
+                font-size: 20px;
+                font-weight: 700;
+                font-family: 'Lato',sans-serif;
+                color: #fff;
+                text-align: center;
+                background-color: #24cfaa;
+
+                transition: 0.5s;
+                display: inline;
+            }
+            #submitbtn:hover{
+                letter-spacing: 3px;
+            }
+            .text{
+            text-align: center;
+            font-size: 28px;
+            padding-top: 20px;
+            letter-spacing: 0.5px;
+            font-family: garamond;
+            font-weight: 500;
+            }
+            #res{
+                color: rgba(255, 0, 0, 0.808);
+                font-family: 'Orelega One', cursive;
+            }
+            .nearby{
+                letter-spacing: 0.5px;
+                font-family: garamond;
+                font-weight: 800;
+            }
+            a{
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="maindiv">
+            <form action="." method="POST">
+                <div class="divinsideform">
+                    <div class="text">Know Your Heart Condition <i class="fas fa-heartbeat"></i></div>
+                    <div id="fields" style="margin-top: 0%;">
+                        <div id="ecg">
+                            <input id="inputdata" name="ecgvals" placeholder="Enter the ECG values here..." required><br>
+                        </div>
+                    </div>
+                    <div>
+                    <button id="submitbtn" type="submit" value="submit" style="cursor: pointer; float: left;" onclick="resfunc()">Submit</button>
+                    <button id="submitbtn" type="reset" value="reset" style="cursor: pointer; float: right;">Reset</button>
+                    </div>
+
+                    <h2 id="res" style="margin-top: 80px;">{{outputstr}}</h2>
+                    <h3 class="nearby"><strong style="color:blue">Note:</strong> In case if the heart beat status is shown something other than normal, it is advisable to consult a cardiologist.</h3>
+                    <h3 class="nearby"><a href="#">Click Here</a> to get the list of nearby hospitals</h3>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+        <div class="footer">
+            <div style="margin-bottom: 10px; text-align: center; padding: 0px; margin: 0px;" >
+            <strong  id="footerheading" style="font-style: italic;">Designed By</strong>
+            </div>
+
+            <div>
+                <div style="font-size: 20px; width: 40%; float: left; padding-left: 10px;">
+                    <i class="fas fa-user-alt"></i>
+                    M.V.Aravinda Satvik<br>
+                    <i class="far fa-id-card"></i>
+                    17BEE0060<br>
+                    <i class="fas fa-book-open"></i>
+                    B.Tech - EEE<br>
+
+                    <i class="fas fa-university"></i>
+                    VIT-Vellore
+                    <ul style="list-style: none; padding-bottom: 0%; margin-bottom: 1%;">
+                        <li style="display:inline; padding: 10px;"><a href="https://www.linkedin.com/in/aravinda-satvik/"><i class="fab fa-linkedin-in" id="linkedinlogo"></i></a></li>
+
+                        <li style="display:inline; padding: 10px;"><a href="https://www.instagram.com/aravind_satvik/"><i class="fab fa-instagram" id="instalogo"></i></a></li>
+                    </ul>
+                </div>
+                <div style="font-size: 20px; width: 40%; float: right;text-align: right; padding-right: 10px;">
+                    <i class="fas fa-user-alt"></i>
+                    Varush.H<br>
+                    <i class="far fa-id-card"></i>
+                    17BEE0154<br>
+                    <i class="fas fa-book-open"></i>
+                    B.Tech - EEE<br>
+
+                    <i class="fas fa-university"></i>
+                    VIT-Vellore
+                    <ul style="list-style: none; padding-bottom: 0%; margin-bottom: 1%;">
+                        <li style="display:inline; padding: 10px;"><a href="https://www.linkedin.com/in/varush-h/"><i class="fab fa-linkedin-in" id="linkedinlogo"></i></a></li>
+
+                        <li style="display:inline; padding: 10px;"><a href="https://www.instagram.com/varush___007/"><i class="fab fa-instagram" id="instalogo"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
